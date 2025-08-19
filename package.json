@@ -1,0 +1,16 @@
+{
+  "name": "internshala-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "npm start"
+  },
+  "author": "farukh patel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.3"
+  }
+}
