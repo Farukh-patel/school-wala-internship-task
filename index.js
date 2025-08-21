@@ -1,13 +1,14 @@
-import express from "express";
-import mysql from "mysql2";
-import router from "./routes/school.js"; 
-import db from "./controllers/db.js";
-import dotenv from 'dotenv';
-import cors from 'cors';
+const express = require("express");
+const mysql = require("mysql2");
+const router = require("./routes/school.js");
+const db = require("./controllers/db.js");
+const dotenv = require("dotenv");
+const cors = require("cors");
 
 dotenv.config();
 const app = express();
 const PORT = 3000;
+
 app.use(cors());
 app.use(express.json());
 app.use("/schools", router);
