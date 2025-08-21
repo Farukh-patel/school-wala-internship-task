@@ -12,6 +12,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/schools", router);
 
+//to just chech server is started or not in deployment
+app.get("/",(req,res)=>{
+  res.send("server running ")
+});
 // Connect to MySQL
 db.connect((err) => {
   if (err) {

@@ -2,9 +2,7 @@ import { Router } from "express";
 import db from "../controllers/db.js";
 
 const router = Router();
-router.get("/",(req,res)=>{
-  res.send("server started mf!")
-});
+
 router.post("/addSchool", (req, res) => {
   const { name, address, latitude, longitude } = req.body;
 
