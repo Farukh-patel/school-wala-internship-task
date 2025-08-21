@@ -1,10 +1,12 @@
-import { Router } from "express";
-import db from "../controllers/db.js";
+const express = require("express");
+const db = require("../controllers/db.js");
 
-const router = Router();
-router.get("/",(req,res)=>{
-  res.send("server started mf!")
+const router = express.Router();
+
+router.get("/", (req, res) => {
+  res.send("server started mf!");
 });
+
 router.post("/addSchool", (req, res) => {
   const { name, address, latitude, longitude } = req.body;
 
@@ -30,8 +32,8 @@ router.post("/addSchool", (req, res) => {
     res.json({ message: "School added successfully!", insertedId: results.insertId });
   });
 });
-// for list of schools
 
+// for list of schools
 router.get("/listSchools", (req, res) => {
   const userLat = parseFloat(req.query.latitude);
   const userLon = parseFloat(req.query.longitude);
@@ -47,7 +49,7 @@ router.get("/listSchools", (req, res) => {
       return res.status(500).json({ error: "Database fetch failed" });
     }
 
-    // haversine formula for distance calculation.
+    // haversine formula for distance calculation
     function getDistance(lat1, lon1, lat2, lon2) {
       const R = 6371; // Earth radius in km
       const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -74,4 +76,4 @@ router.get("/listSchools", (req, res) => {
   });
 });
 
-export default router;
+module.exports = router;
