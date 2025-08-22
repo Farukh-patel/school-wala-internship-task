@@ -1,11 +1,7 @@
 const express = require("express");
 const db = require("../controllers/db.js");
 
-
-
-
 const router = express.Router();
-
 
 router.post("/addSchool", (req, res) => {
   const { name, address, latitude, longitude } = req.body;
@@ -51,7 +47,7 @@ router.get("/listSchools", (req, res) => {
 
     // haversine formula for distance calculation
     function getDistance(lat1, lon1, lat2, lon2) {
-      const R = 6371; // Earth radius in km
+      const R = 6371; 
       const dLat = (lat2 - lat1) * Math.PI / 180;
       const dLon = (lon2 - lon1) * Math.PI / 180;
       const a =
@@ -61,7 +57,7 @@ router.get("/listSchools", (req, res) => {
         Math.sin(dLon / 2) *
         Math.sin(dLon / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c; // distance in km
+      return R * c; 
     }
 
     const schoolsWithDistance = results.map(school => ({
